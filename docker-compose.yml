@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
     ports:
-        - 3306:3306
+      - 3306:3306
     container_name: mysql
 
 
@@ -23,8 +23,20 @@ services:
       - 5432:5432
     container_name: postgresql
 
-    <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.0.7.Final</version>
-    </dependency>
+  node_container:
+    build: .
+    image: prepared_node_js:1.1
+    ports:
+      - 9999:9999
+    container_name: simulator
+
+  adminer_container:
+    image: adminer:latest
+    environment:
+      #      ADMINER_DEFAULT_SERVER: postgresql # For PostgreSQL database
+      ADMINER_DEFAULT_SERVER: mysql    # For MySQL database
+      ADMINER_DESIGN: aisafa
+    ports:
+      - 8081:8080
+    container_name: adminer
+
