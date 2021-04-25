@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'io.rest-assured:rest-assured:4.3.3'
@@ -25,7 +26,9 @@ dependencies {
     testImplementation 'com.codeborne:selenide:5.18.1'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
     implementation 'org.projectlombok:lombok:1.18.18'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.30.Final'
 }
+
 
 test {
     useJUnitPlatform()
